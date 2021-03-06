@@ -47,7 +47,7 @@ public class Conta {
 	}
 	
 	public void debito(double valor) {
-		if (this.saldo >= valor) {
+		if (this.getSaldo () >= valor) {
 			this.saldo = this.saldo - valor;
 		} 
 	}

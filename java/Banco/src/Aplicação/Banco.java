@@ -19,6 +19,7 @@ public class Banco {
 		String[] movimentos = new String[10];
 		String movimento = null;
 		double valor = 0.00;
+		
 		// chamar a minha conta
 		System.out.println("\t*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
 		System.out.println();
@@ -50,6 +51,7 @@ public class Banco {
 			System.out.println("\t\t\t Digite o número do seu CPf:");
 			cpf = ler.next();
 			contaMagica = new ContaEspecial(numero, cpf, true, 1000.00);
+			
 
 		} else if (tipoConta == 6) {
 			System.out.println("\t\t\t Operação encerrada.");
@@ -66,6 +68,7 @@ public class Banco {
 			System.out.println("\t*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
 			System.out.println();
 			System.out.println("Conta Especial");
+			System.out.println("Você possui um limite de Cheque Especial  " + contaMagica.getLimite());
 			System.out.println("Saldo " + contaMagica.getSaldo());
 			System.out.println("MOVIMENTO - D-debito ou C-Crédito: ");
 			movimento = ler.next();
@@ -74,9 +77,13 @@ public class Banco {
 			if (movimento.equalsIgnoreCase("C")) {
 				contaMagica.credito(valor);
 				movimentos[operaçoes] = "Crédito " + valor;
-			} else {
+				
+			} else  {
 				contaMagica.debito(valor);
 				movimentos[operaçoes] = "Débito " + valor;
+								
+				
+				
 			}
 			operaçoes = operaçoes + 1;
 			System.out.println("Continuar S/N:");
